@@ -1,0 +1,18 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        
+
+        stack = []
+        parMap = {")" : "(" , "}" : "{", "]" : "["}
+
+        for c in s:
+            if stack and stack[-1] == parMap.get(c):
+                stack.pop()
+            
+            else:
+                stack.append(c)
+            
+        if not stack:
+            return True
+        else:
+            return False
